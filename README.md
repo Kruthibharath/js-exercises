@@ -4,7 +4,7 @@ Before we begin covering the content of the programme we'd like you to complete 
 
 This repository contains 7 sets of exercises which will help you to build your ability and confidence with JavaScript ahead of the start of the programme. Completing all sets would be ideal, but please ensure you complete at least the first 5.
 
-We will be checking over your solutions, so please ensure you `commit` after solving each problem, and don't forget to `push` to GitHub regularly.
+We will be checking over your solutions, so ensure you `commit` to git after solving each problem, and don't forget to `push` to GitHub regularly.
 
 You may find these exercises challenging but they give you the opportunity to showcase your Growth Mindset and commitment to programming and learning. You can always come to us if you are having any trouble! 😊
 
@@ -22,7 +22,7 @@ To complete these challenges you will need to have Node.js installed on your com
 
 👉 We recommend using the most recent LTS (Long-Term Support) version of Node, which is currently Node 18.
 
-A download will start. When a pop-up appears please follow the installation instructions.
+A download will start. When a pop-up appears, follow the installation instructions.
 
 To check you have installed Node.js correctly, go to your terminal and type:
 
@@ -50,7 +50,7 @@ The short version is that you must:
 
 ### ✅ How to submit
 
-👉 Once completed, please attach a link to your GitHub repository to the assignment submission on Google Classroom. Ensure that your repo is set to "Public" on github so we can see it!
+👉 Once completed, please attach a link to your GitHub repository to the assignment submission on Google Classroom. Ensure that your repo is set to "Public" on GitHub so we can see it!
 
 ### 💻 Completing the challenges
 
@@ -104,7 +104,7 @@ xdescribe("capitalize", () => {
 });
 ```
 
-⚠️ But make sure when you push remotely to github that you have re-enabled all the tests!
+⚠️ But make sure when you push remotely to GitHub that you have re-enabled all the tests!
 
 Lastly, to run **ONE** test file at a time you can use the command `npm test` followed by the path to the file:
 
@@ -142,16 +142,19 @@ Eslint helps by spotting common errors such as undefined variables. This is huge
 
 It is configured with a set of standard rules, which can be viewed [here](https://eslint.org/docs/rules/).
 
-For reporting as-you-type, install and enable the eslint extension for VSCode. To do this:
+For reporting as-you-type, you will need to install eslint:
 
-1. Click the square symbol on the left hand bar for extensions
-2. Search for "eslint" and click install
+    npm install eslint
+
+💡 Try testing the eslint rules. For example, by adding `var` in your code you should get a warning that says
+
+    "Unexpected var, use let or const instead. eslintno-var"
 
 Alternatively, you can manually run eslint by running this command in the root folder of this repository on your machine:
 
     npx eslint ./
 
-If there is no output then `eslint` has found no errors 🥳 If there are errors, you should fix them before committing your code.
+If there is no output in your terminal, then `eslint` has found no errors 🥳 If there are errors, you should fix them before committing your code.
 
 # 🔥 The first challenge 🔥
 
