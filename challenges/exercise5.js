@@ -14,7 +14,7 @@ export const sumMultiples = (arr) => {
   if (arr === undefined) throw new Error("arr is required");
   if (!Array.isArray(arr)) throw new Error("An array is required");
   /*
-  const multiplesOf3And5 = arr.filter((num) => num % 3 || num % 5);
+  const multiplesOf3And5 = arr.filter((num) => {num % 3 === 0 || num % 5 === 0});
   return multiplesOf3And5.reduce((sum) => num1 + num2);
   */
   return arr.reduce((total, num) => {
@@ -33,10 +33,13 @@ export const sumMultiples = (arr) => {
  */
 export const isValidDNA = (str) => {
   if (str === undefined) throw new Error("str is required");
+  return str.toUpperCase().match(/^[CGTA]+$/) ? true : false;
 };
 
 /**
- * This function will receive a valid DNA string (see above) and should return a string of the complementary base pairs. In DNA, T always pairs with A, and C always pairs with G. So a string of "ACTG" would have a complementary DNA string of "TGAC".
+ * This function will receive a valid DNA string (see above) and should return a string of the
+ * complementary base pairs. In DNA, T always pairs with A, and C always pairs with G.
+ * So a string of "ACTG" would have a complementary DNA string of "TGAC".
  * @param {String} str
  * @returns {String}
  */
@@ -45,16 +48,32 @@ export const getComplementaryDNA = (str) => {
 };
 
 /**
- * This function should receive a number and return true/false depending on whether it is a prime number or not. A prime number is a number that can only be divided evenly by 1 and itself (for example, 7)
+ * This function should receive a number and return true/false depending on whether
+ * it is a prime number or not. A prime number is a number that can only be divided evenly by 1 and itself
+ * (for example, 7)
  * @param {Number} n
  * @returns {Boolean}
  */
 export const isItPrime = (n) => {
   if (n === undefined) throw new Error("n is required");
+  if (n === 1) {
+    return false;
+  } else if (n === 2) {
+    return true;
+  } else {
+    for (let i = 2; i < n; i++) {
+      if (n % i === 0) {
+        return false;
+      }
+    }
+    return true;
+  }
 };
 
 /**
- * This function should receive a number and return an array of n arrays, each filled with n items. The parameter "fill" should be used as the filler of the arrays. For example, given parameters 3 and "foo" the resulting matrix should be:
+ * This function should receive a number and return an array of n arrays,
+ * each filled with n items. The parameter "fill" should be used as the filler of the arrays.
+ * For example, given parameters 3 and "foo" the resulting matrix should be:
  * [
  *   ["foo", "foo", "foo"],
  *   ["foo", "foo", "foo"],

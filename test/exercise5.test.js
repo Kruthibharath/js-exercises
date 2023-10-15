@@ -20,65 +20,25 @@ describe("sumMultiples", () => {
     expect(sumMultiples([5, 3, 7, 8])).toBe(8);
     expect(sumMultiples([1, 2])).toBe(0);
   });
-  /*
-  test("if the number is not found in the array, returns null", () => {
-    expect(findNextNumber([5, 3, 7, 8, 1, 10], 55)).toBe(null);
-  });
-
-  test("if the number is found more than once, returns the number after the first instance", () => {
-    expect(findNextNumber([5, 3, 7, 8, 1, 3, 10], 3)).toBe(7);
-  });
-
-  test("if the number is found in the final index position of the array, returns null", () => {
-    expect(findNextNumber([5, 3, 7, 8, 1, 3, 10], 10)).toBe(null);
-  });
-  */
 });
 
 describe("isValidDNA", () => {
-  /*
-  test("returns an object with the count of 1s and 0s in a string", () => {
-    expect(count1sand0s("11000")).toEqual({
-      1: 2,
-      0: 3,
-    });
-
-    expect(count1sand0s("0101010111")).toEqual({
-      1: 6,
-      0: 4,
-    });
-
-    expect(count1sand0s("1111111")).toEqual({
-      1: 7,
-      0: 0,
-    });
-
-    expect(count1sand0s("0111")).toEqual({
-      1: 3,
-      0: 1,
-    });
+  test("return true/false depending on whether given string is a valid DNA string", () => {
+    expect(isValidDNA("CGTA")).toBe(true);
+    expect(isValidDNA("cgtacgtacg")).toBe(true);
+    expect(isValidDNA("CGRDAT")).toBe(false);
+    expect(isValidDNA("GACGTAGATCT")).toBe(true);
+    expect(isValidDNA("agtucgta")).toBe(false);
   });
-  */
 });
-
-describe("getComplementaryDNA", () => {
-  /*
-  test("reverses the digits of a number", () => {
-    expect(reverseNumber(5)).toBe(5);
-    expect(reverseNumber(104)).toBe(401);
-    expect(reverseNumber(12345)).toBe(54321);
-    expect(reverseNumber(100)).toBe(1); // No leading 0 necessary
-  });
-  */
-});
+describe("getComplementaryDNA", () => {});
 
 describe("isItPrime", () => {
-  /*
-  test("returns the total of the numbers in all sub arrays", () => {
-    const arrs = [[1, 2, 3], [6, 3, 1], [1], [9, 10], [3, 5]];
-    expect(sumArrays(arrs)).toBe(44);
+  test("return true/false depending on whether it is a prime number or not", () => {
+    expect(isItPrime(2)).toBe(true);
+    expect(isItPrime(66)).toBe(false);
+    expect(isItPrime(7)).toBe(true);
   });
-  */
 });
 
 describe("createMatrix", () => {
