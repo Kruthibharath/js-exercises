@@ -31,7 +31,13 @@ describe("isValidDNA", () => {
     expect(isValidDNA("agtucgta")).toBe(false);
   });
 });
-describe("getComplementaryDNA", () => {});
+describe("getComplementaryDNA", () => {
+  test("returns the complementary base pairs for a given DNA string", () => {
+    expect(getComplementaryDNA("ACTG")).toBe("TGAC");
+    expect(getComplementaryDNA("CGTA")).toBe("GCAT");
+    expect(getComplementaryDNA("ATCG")).toBe("TAGC");
+  });
+});
 
 describe("isItPrime", () => {
   test("return true/false depending on whether it is a prime number or not", () => {
@@ -42,118 +48,35 @@ describe("isItPrime", () => {
 });
 
 describe("createMatrix", () => {
-  /*
-  test("returns an array with the first and last items swapped", () => {
-    expect(arrShift([1, 2])).toEqual([2, 1]);
-    expect(arrShift([1, 2, 3])).toEqual([3, 2, 1]);
-    expect(arrShift([1, 2, 3, 4])).toEqual([4, 2, 3, 1]);
-   
+  test("return an array of n arrays, each filled with n items", () => {
+    /*const n = 3;
+    const fill = "foo";*/
+    const expectedMatrix1 = [
+      ["foo", "foo", "foo"],
+      ["foo", "foo", "foo"],
+      ["foo", "foo", "foo"],
+    ];
+    expect(createMatrix(3, "foo")).toStrictEqual(expectedMatrix1);
+    expect(createMatrix(1, "boo")).toStrictEqual([["boo"]]);
   });
-
-  test("makes no difference when the array length is < 2", () => {
-    expect(arrShift([1])).toEqual([1]);
-    expect(arrShift([])).toEqual([]);
-  });
-   */
 });
 
 describe("areWeCovered", () => {
-  /*
-  test("returns true if any of the properties of an object contain the specified string", () => {
-    const obj1 = {
-      name: "LINNMON",
-      description: "Small round table",
-      price: 31.89,
-      store: "Warrington",
-      code: 12872,
-    };
-    expect(findNeedle(obj1, "table")).toBe(true);
-
-    // Note that the objects provided to the function could have any keys/values
-    const obj2 = {
-      product_name: "Sparkle n Shine Dishwasher Tablets",
-      price: 1.99,
-      location: "Hulme",
-      discounted: false,
-      available: true,
-    };
-    expect(findNeedle(obj2, "Dishwasher")).toBe(true);
+  test("return true/false depending on whether there are enough staff scheduled for the given day", () => {
+    const staffObject = [
+      { name: "Sally", rota: ["Monday", "Tuesday", "Friday"] },
+      { name: "Pedro", rota: ["Saturday", "Sunday", "Tuesday", "Wednesday"] },
+      {
+        name: "James",
+        rota: ["Saturday", "Sunday", "Tuesday", "Wednesday", "Thursday"],
+      },
+      { name: "Hannah", rota: ["Saturday", "Monday", "Tuesday", "Wednesday"] },
+    ];
+    expect(areWeCovered(staffObject, "Monday")).toBe(false);
+    expect(areWeCovered(staffObject, "Tuesday")).toBe(true);
+    expect(areWeCovered(staffObject, "Wednesday")).toBe(true);
+    expect(areWeCovered(staffObject, "Thursday")).toBe(false);
+    expect(areWeCovered(staffObject, "Friday")).toBe(false);
+    expect(areWeCovered(staffObject, "Saturday")).toBe(true);
   });
-
-  test("returns false if none of the properties of an object contain the specified string", () => {
-    const obj1 = {
-      name: "LINNMON",
-      description: "Small round table",
-      price: 31.89,
-      store: "Warrington",
-      code: 12872,
-    };
-    expect(findNeedle(obj1, "chair")).toBe(false);
-
-    // Note that the objects provided to the function could have any keys/values
-    const obj2 = {
-      product_name: "Sparkle n Shine Dishwasher Tablets",
-      price: 1.99,
-      location: "Hulme",
-      discounted: false,
-      available: true,
-    };
-    expect(findNeedle(obj2, "Carpet Cleaner")).toBe(false);
-  });
-
-  test("The search string should not be case sensitive", () => {
-    const obj1 = {
-      name: "LINNMON",
-      description: "Small round table",
-      price: 31.89,
-      store: "Warrington",
-      code: 12872,
-    };
-
-    expect(findNeedle(obj1, "warrington")).toBe(true);
-    expect(findNeedle(obj1, "linnmon")).toBe(true);
-    expect(findNeedle(obj1, "Liverpool")).toBe(false);
-  });
-  */
 });
-
-// describe("getWordFrequencies", () => {
-//   test("returns the frequencies of each word in a string", () => {
-//     expect(getWordFrequencies("hello world")).toEqual({
-//       hello: 1,
-//       world: 1,
-//     });
-
-//     expect(getWordFrequencies("the cat is hairier than the rat")).toEqual({
-//       the: 2,
-//       cat: 1,
-//       is: 1,
-//       hairier: 1,
-//       than: 1,
-//       rat: 1,
-//     });
-
-//     expect(getWordFrequencies("hello hello hello")).toEqual({
-//       hello: 3,
-//     });
-//   });
-
-//   test("ignores capitalisation", () => {
-//     expect(getWordFrequencies("Hello hello hello")).toEqual({
-//       hello: 3,
-//     });
-//   });
-
-//   test("ignores punctuation", () => {
-//     // Hint: Google "JavaScript remove special characters from string" to get some ideas!
-//     expect(
-//       getWordFrequencies("Hello, hello hello! What have we here?")
-//     ).toEqual({
-//       hello: 3,
-//       what: 1,
-//       have: 1,
-//       we: 1,
-//       here: 1,
-//     });
-//   });
-// });

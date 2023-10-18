@@ -77,12 +77,12 @@ export const findNeedle = (haystack, searchTerm) => {
   if (haystack === undefined) throw new Error("haystack is required");
   if (searchTerm === undefined) throw new Error("searchTerm is required");
   // Your code here!
-  const caseInsensetive = searchTerm.toLowerCase();
+  const caseSensetive = searchTerm.toLowerCase();
   for (const key in haystack) {
     if (
       haystack.hasOwnProperty(key) &&
       typeof haystack[key] === "string" &&
-      haystack[key].toLowerCase().includes(caseInsensetive)
+      haystack[key].toLowerCase().includes(caseSensetive)
     ) {
       return true;
     }
@@ -93,4 +93,15 @@ export const findNeedle = (haystack, searchTerm) => {
 export const getWordFrequencies = (str) => {
   if (str === undefined) throw new Error("str is required");
   // Your code here!
+  const wordFrequencies = {};
+  const words = str.toLowerCase().match(/\b\w+\b/g);
+  //console.log(words);
+  for (const word of words) {
+    if (wordFrequencies[word]) {
+      wordFrequencies[word]++;
+    } else {
+      wordFrequencies[word] = 1;
+    }
+  }
+  return wordFrequencies;
 };
